@@ -1,0 +1,48 @@
+<section fxLayout="column" fxFlexAlign="stretch">
+  <div fxFlexAlign="center">
+    <p>Welcome to the WhyDonate Customer List</p>
+  </div>
+ 
+  <div class="example-container mat-elevation-z8">
+    <mat-table [dataSource]="dataSource">
+     
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+        <mat-cell *matCellDef="let row" data-label="name"> {{row.name}} </mat-cell>
+      </ng-container>
+
+
+      <ng-container matColumnDef="email">
+        <mat-header-cell *matHeaderCellDef> Email </mat-header-cell>
+        <mat-cell *matCellDef="let row" data-label="email"> {{row.email}} </mat-cell>
+      </ng-container>
+
+
+      <ng-container matColumnDef="phone">
+        <mat-header-cell *matHeaderCellDef> Phone </mat-header-cell>
+        <mat-cell *matCellDef="let row" data-label="phone"> {{row.phone}} </mat-cell>
+      </ng-container>
+
+
+      <ng-container matColumnDef="address">
+        <mat-header-cell *matHeaderCellDef> Address </mat-header-cell>
+        <mat-cell *matCellDef="let row" data-label="Address"> {{row.address}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="action">
+        <th width="15%" mat-header-cell *matHeaderCellDef > Action </th>
+        <td width="15%" mat-cell *matCellDef="let row">
+          <a  matTooltip="View" [matTooltipPosition]="'above'"(click)="viewCustomer(row)"
+            matTooltipClass="mat_pop" class="btn btn-light-success btn-sm btn-just-icon">
+            <i class="material-icons">visibility</i>
+          </a>
+        </td>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;">
+      </mat-row>
+
+    </mat-table>
+  </div>
+</section>

@@ -1,0 +1,38 @@
+<div class="container" novalidate>
+  <form [formGroup]="customers" class="form">
+    <mat-form-field class="form-element">
+      <input matInput placeholder="Customer Name" formControlName="name" autocomplete="off">
+      <mat-error *ngIf="f.name.errors && f.name.errors.required">
+        Customer Name is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="form-element">
+      <input matInput placeholder="Customer Email" formControlName="email" autocomplete="off">
+      <mat-error *ngIf="f.email.errors && f.email.errors.required">
+        Customer email is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="form-element">
+      <input matInput placeholder="Customer Phone" formControlName="phone" autocomplete="off" type="number">
+      <mat-error *ngIf="f.phone.errors && f.phone.errors.required">
+        Customer Phone is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="form-element">
+      <input matInput placeholder="Customer Address" formControlName="address" autocomplete="off">
+      <mat-error *ngIf="f.address.errors && f.address.errors.required">
+        Customer Address is required
+      </mat-error>
+    </mat-form-field>
+
+    <div class="form-element">
+      <button mat-raised-button color="primary" type="submit" class="button" [disabled]="!customers.valid"
+        (click)="save()">
+        <i class="fa fa-spin fa-spinner" *ngIf="loader"></i> Submit Form</button>
+    </div>
+
+  </form>
+</div>
