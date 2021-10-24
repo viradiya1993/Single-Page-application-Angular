@@ -3,14 +3,13 @@ import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from '../home/home.component';
 import { CustomerComponent } from '../customer/customer.component';
- 
+
 const routes: Routes = [
-  { path: '', component: HomeComponent},
-  { path: 'customer-add', component: CustomerComponent},
-  { path: '', redirectTo: '/home', pathMatch: 'full' }
- 
+  { path: '', component: HomeComponent },
+  { path: 'customer-add', component: CustomerComponent },
+  { path: "**", component: HomeComponent}
 ];
- 
+
 @NgModule({
   imports: [
     CommonModule,
